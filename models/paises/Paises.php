@@ -1,7 +1,13 @@
 <?php
 namespace Models\Paises;
-class Pais{
-    private string $pais_id;
-    private $nombre;    
+use Models\Model;
+class PaisModel{
+    use Model;
+    public function __construct(
+        private \PDO $conn      
+    ){
+
+    }
+
 
 }
