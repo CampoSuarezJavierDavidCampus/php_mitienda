@@ -1,5 +1,5 @@
 <?php 
-namespace Config;
+namespace Helpers\Config;
 class connectionString{
     public $db = Array(
         'db' => Array(

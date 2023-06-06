@@ -1,8 +1,8 @@
 <?php
-namespace Helpers\Validar;
+namespace App\Validar;
 class Filtro{
     private $filtro;
-    public function __construct(private string $name ,callable $filtro){
+    public function __construct(public string $name ,callable $filtro){
         $this->filtro = $filtro;
     }
     public function sanitizar($valor){

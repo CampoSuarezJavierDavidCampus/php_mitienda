@@ -1,5 +1,5 @@
 <?php
-namespace Helpers\Validar;
+namespace App\Validar;
 class Sanitizar{
     private array $filtros = [];
     public function add(Filtro $filtro){

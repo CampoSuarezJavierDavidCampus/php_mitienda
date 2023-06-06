@@ -10,9 +10,10 @@
   "require": {},
   "autoload": {
     "psr-4": {
-      "App\\": "./clases",
-      "Config\\": "./config",
+      "App\\": "./app",
       "Models\\": "./models",
+      "Controllers\\": "./controllers",
+      "Views\\": "./views",
       "Helpers\\": "./helpers"
     }
   }
