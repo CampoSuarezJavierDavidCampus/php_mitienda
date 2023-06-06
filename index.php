@@ -1,12 +1,5 @@
 <?php 
-    require_once('clases/Database.php');
-    $db = new Database();
-    $conn = $db->getConnection('db2');
-    if (is_array($conn)){
-        echo json_encode($conn);
-    }else{
-        
-    }
+    include_once('app.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

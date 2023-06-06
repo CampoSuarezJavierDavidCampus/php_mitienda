@@ -1,0 +1,19 @@
+{
+  "name": "apolm01-027/bdphp-conex",
+  "description": "Demo conexion entre php y mysql javier",
+  "authors": [
+    {
+      "name": "CampoSuarezJavierDavidCampus",
+      "email": "campo.javier1502@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "App\\": "./clases",
+      "Config\\": "./config",
+      "Models\\": "./models",
+      "Helpers\\": "./helpers"
+    }
+  }
+}
