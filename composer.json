@@ -11,10 +11,11 @@
   "autoload": {
     "psr-4": {
       "App\\": "./app",
-      "Models\\": "./models",
+      "Config\\": "./config",
       "Controllers\\": "./controllers",
-      "Views\\": "./views",
-      "Helpers\\": "./helpers"
+      "Helpers\\": "./helpers",
+      "Models\\": "./models",
+      "Views\\": "./views"
     }
   }
 }

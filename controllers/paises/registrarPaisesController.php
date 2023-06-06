@@ -1,8 +1,8 @@
 <?php
-namespace Controllers\Registrar;
-use Models\PaisesModel;
-use Views\paises\PaisesView;
-class RegistrarPaisesController extends PaisesModel{    
+namespace Controllers\paises;
+use Models\paises\paisesModel;
+use Views\paises\paisesView;
+class registrarPaisesController extends PaisesModel{    
     
     public function __construct(\PDO $conn,array $datos)
     {
@@ -12,9 +12,10 @@ class RegistrarPaisesController extends PaisesModel{
         }
     }
 
-    public function render():PaisesView{
+    public function render():string{
         $this->insert();
-        return new PaisesView();
+        $view =  new PaisesView();
+        return $view->render();
     }
 
 }

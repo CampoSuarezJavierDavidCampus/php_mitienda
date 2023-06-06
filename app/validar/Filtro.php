@@ -1,5 +1,5 @@
 <?php
-namespace App\Validar;
+namespace App\validar;
 class Filtro{
     private $filtro;
     public function __construct(public string $name ,callable $filtro){

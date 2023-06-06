@@ -1,5 +1,5 @@
 <?php
-namespace App\Clases;
+namespace App\clases;
 use App\Table;
 class Pais implements Table{    
     public function __construct(
