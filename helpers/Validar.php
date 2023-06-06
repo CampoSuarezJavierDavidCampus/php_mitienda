@@ -18,7 +18,7 @@ class Validar extends Sanitizar{
         ));
         $this->add(new Filtro(
             'number',
-            fn($email)=>filter_var($email,FILTER_SANITIZE_NUMBER_FLOAT)
+            fn($number)=>filter_var($number,FILTER_SANITIZE_NUMBER_FLOAT)
         ));
     }
 }

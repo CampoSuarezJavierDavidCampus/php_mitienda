@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hola mundo desde php </h1>
+    <?php
+        
+    ?>
+    <h1>hola desde ños departamentos controller</h1>
 </body>
 </html>
