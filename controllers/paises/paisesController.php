@@ -2,8 +2,8 @@
 namespace Controllers\paises;
 use Models\paises\paisesModel;
 use Views\paises\paisesView;
-class paisesController extends PaisesModel{    
-    
+use App\clases\Pais;
+class paisesController extends PaisesModel{
     public function __construct(
         \PDO $conn,
         private string $method,
@@ -11,29 +11,25 @@ class paisesController extends PaisesModel{
     )
     {
         parent::__construct($conn);        
-        foreach($datos as $dato){
-            $this->set_pais($dato);
+        if (!empty($_GET) && isset($_GET['id'])) {
+            $this->set_obj(new Pais('',$_GET['id']));
+        }else{
+           if($this->method !== 'GET') {
+                foreach($datos as $nombre){                
+                    $this->set_obj(new Pais($nombre));
+                }
+           }else{
+            echo 'DATOS NO MODIFICADOS';
+           }
         }
     }
 
     public function render(bool $get_data = false):string{
-        $id = null;
+        $datos = $this->peticion($this->method);
         $view =  new PaisesView();
-
-        if(!empty($_GET) && $_GET['id']){
-            $id = (int) $_GET['id'];
-        }
-        
-        $datos = match($this->method){
-            'POST'=>$this->insert(call_user_func($this->getSQL('insert'))),
-            'GET'=>$this->select(call_user_func($this->getSQL('select'),(bool)$id),$id)
-        };
-        
-        if($get_data){
-            return json_encode($datos);
-        }
-
-        return $view->render($datos);
+        return $get_data
+            ?json_encode($datos)
+            :$view->render($datos);
     }
 
 }

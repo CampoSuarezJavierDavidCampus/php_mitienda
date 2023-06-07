@@ -1,18 +1,30 @@
 <?php
 namespace App\clases;
-use App\Table;
-class Pais implements Table{    
+use App\{Table,Obj};
+class Pais extends Obj implements Table{    
     public function __construct(
-        public string $nombre,
+        public readonly string $nombre = '',
         public readonly ?int $id = null
     ){}
     public function get_params():array{
-        if($this->id){
-            return [
-                'id'=> $this->id,
-                'nombre'=>$this->nombre
-            ];    
+        $params = $this->get_datos();
+
+        if($this->nombre != ''){
+            $params['nombre']=$this->nombre;            
         }
-        return ['nombre'=>$this->nombre];
+        if($this->id){
+            $params['id']= $this->id;
+        }
+        return $params;
+    }
+    public function get_datos():array{
+        $datos = [];
+        if($this->nombre != ''){
+            $datos['string']=['nombre',$this->nombre];            
+        }
+        if($this->id){
+            $datos['number']= ['id',$this->id];
+        }
+        return $this->sanitizar($datos);
     }
 }

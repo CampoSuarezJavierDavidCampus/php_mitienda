@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hola mundo desde php </h1>
+    <h1>hola mundo desde php PAIS CONTROLLER </h1>
     <pre>
         <?php
             echo var_dump($result);
         ?>
     </pre>    
 </body>
-</html>
+</html> 
