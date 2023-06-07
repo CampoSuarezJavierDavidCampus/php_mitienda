@@ -23,28 +23,17 @@ class paisesModel{
         $this->paises[]= $this->sanitizar_pais($nombre,$id);
     }
 
-    protected function insert():void{        
-        $this->conn->beginTransaction();
-        $SQL = "INSERT INTO Paises (nombre) VALUES (:nombre)";        
-        $stmt = $this->conn->prepare($SQL);        
-        foreach($this->paises as $pais){            
-            $stmt->execute($pais->get_params());
-        }
-        $this->conn->commit();
-        $this->conn = null;
-    }
-    protected function select(?int $id = null){
-        $SQL = "SELECT pais_id, nombre FROM Paises";
-        if($id){
-            $SQL .= " WHERE pais_id = :id";
-        }                
-        $stmt = $this->conn->prepare($SQL);
-        if($id){
-            $stmt->execute(['id'=>$id]);        
-        }else{
-            $stmt->execute();
-        }                
-        $datos =$stmt->fetchAll();
-        return $datos;
+    protected function getSQL($metodo){
+        return match($metodo){
+            'insert'=>fn()=>"INSERT INTO Paises (nombre) VALUES (:nombre)",
+            'select'=>function(bool $there_id = false){
+                $SQL = "SELECT pais_id, nombre FROM Paises";
+                if($there_id){
+                    $SQL .= " WHERE pais_id = :id";
+                } 
+                return $SQL;
+            }
+        };
+        
     }
 }

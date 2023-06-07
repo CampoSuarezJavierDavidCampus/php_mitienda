@@ -25,8 +25,8 @@ class paisesController extends PaisesModel{
         }
         
         $datos = match($this->method){
-            'POST'=>$this->insert(),
-            'GET'=>$this->select($id)
+            'POST'=>$this->insert(call_user_func($this->getSQL('insert'))),
+            'GET'=>$this->select(call_user_func($this->getSQL('select'),(bool)$id),$id)
         };
         
         if($get_data){

@@ -4,4 +4,5 @@ $obj = new  Config\connectionString();
 $db = new App\Database($obj->db);
 $conn = $db->getConnection('db');
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-$controller = new Controllers\departamentos\departamentosController($conn,$method);
+$controller = new Controllers\paises\paisesController($conn,$method);
+echo $controller->render();

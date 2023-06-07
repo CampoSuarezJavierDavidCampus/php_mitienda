@@ -1,8 +1,16 @@
 <?php
 namespace Controllers\departamentos;
-class departamentosController {    
-    public function __construct()
+use Models\departamentos\departamentoModel;
+class departamentosController extends departamentoModel{      
+    public function __construct(
+        private string $method,
+        private array $datos = [],
+        private ?int $id = null
+    )
     {
-        echo 'todo bien';
+        
     }
+    
+
+    
 }

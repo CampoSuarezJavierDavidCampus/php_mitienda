@@ -12,4 +12,23 @@ trait Model{
         }        
         return $datos_sanitizados;        
     }    
+    protected function insert($SQL):void{        
+        $this->conn->beginTransaction();        
+        $stmt = $this->conn->prepare($SQL);        
+        foreach($this->paises as $pais){            
+            $stmt->execute($pais->get_params());
+        }
+        $this->conn->commit();
+        $this->conn = null;
+    }
+    protected function select($SQL,?int $id = null):array{                     
+        $stmt = $this->conn->prepare($SQL);
+        if($id){
+            $stmt->execute(['id'=>$id]);        
+        }else{
+            $stmt->execute();
+        }                
+        $datos =$stmt->fetchAll();
+        return $datos;
+    }
 }
