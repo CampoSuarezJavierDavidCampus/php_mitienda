@@ -3,7 +3,10 @@ namespace Models;
 use App\Obj;
 trait Model{          
     protected array $objs = [];
-    protected function set_obj(Obj $obj):void{
+    protected function __construct(
+        protected ?\PDO $conn
+    ){}
+    protected function add(Obj $obj):void{
         $this->objs[]= $obj;
     }        
     protected function insert(string $SQL):void{        
@@ -16,9 +19,9 @@ trait Model{
         $this->conn = null;
     }
     protected function select(string $SQL):array{        
-        $stmt = $this->conn->prepare($SQL);
-        $stmt->execute($this->objs[0]?$this->objs[0]->get_params():null);
-        $datos =$stmt->fetchAll();
+        $stmt = $this->conn->prepare($SQL);        
+        $stmt->execute($this->objs?$this->objs[0]->get_params():null);
+        $datos =$stmt->fetchAll();        
         return $datos;
     }
 }

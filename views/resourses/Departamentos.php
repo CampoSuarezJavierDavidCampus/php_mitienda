@@ -7,9 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-        
-    ?>
-    <h1>hola desde ños departamentos controller</h1>
+    
+    <h1>hola desde departamentos controller</h1>
+    <pre>
+        <?php
+            echo var_dump($result);
+        ?>
+    </pre>
 </body>
 </html>

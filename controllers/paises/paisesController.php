@@ -2,8 +2,9 @@
 namespace Controllers\paises;
 use Models\paises\paisesModel;
 use Views\paises\paisesView;
+use Controllers\Controller;
 use App\clases\Pais;
-class paisesController extends PaisesModel{
+class paisesController extends PaisesModel implements Controller{
     public function __construct(
         \PDO $conn,
         private string $method,
@@ -12,11 +13,11 @@ class paisesController extends PaisesModel{
     {
         parent::__construct($conn);        
         if (!empty($_GET) && isset($_GET['id'])) {
-            $this->set_obj(new Pais('',$_GET['id']));
+            $this->add(new Pais('',$_GET['id']));
         }else{
            if($this->method !== 'GET') {
                 foreach($datos as $nombre){                
-                    $this->set_obj(new Pais($nombre));
+                    $this->add(new Pais($nombre));
                 }
            }else{
             echo 'DATOS NO MODIFICADOS';
