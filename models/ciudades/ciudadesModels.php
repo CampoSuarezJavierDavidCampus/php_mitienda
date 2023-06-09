@@ -6,7 +6,6 @@ class ciudadesModels{
     protected function peticion($metodo){                
         $datos = match($metodo){
             "POST"=>$this->insert("INSERT INTO Ciudades (ciudad_nombre,departamento_id) VALUES (:ciudad_nombre,:departamento_id)"),
-            "D"
             "GET" => call_user_func(function(){
                 $datos = $this->select(call_user_func(function(){
                     $SQL = "SELECT ciudad_id, ciudad_nombre, d.departamento_id, d.departamento_nombre FROM Ciudades AS c 
@@ -18,7 +17,7 @@ class ciudadesModels{
                 }));
                 $datos['departamentos']= $this->select("SELECT departamento_id, departamento_nombre FROM Departamentos");                
                 return $datos;
-            })            
+            })           
         };        
         return $datos;
     }

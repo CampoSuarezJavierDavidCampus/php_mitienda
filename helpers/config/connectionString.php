@@ -5,9 +5,9 @@ class connectionString{
         'db' => Array(
             'driver' => 'mysql',
             'host' => 'localhost',
-            'username' => 'root',
+            'username' => 'campus',
             'database' => 'mitienda',
-            'password' => 'campusLand@2023',
+            'password' => 'campus2023',
             'collation' => 'utf8mb4_unicode_ci',
             'flags' => [
                 // Turn off persistent connections
