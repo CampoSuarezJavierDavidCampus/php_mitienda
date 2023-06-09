@@ -3,7 +3,10 @@ namespace Models\ciudades;
 use Models\Model;
 class ciudadesModels{
     use Model;    
-    protected function peticion($metodo){                
+    protected function peticion($metodo){
+        if(!empty($this->objs)){
+            $id =$this->objs[0]->get_id();
+        }
         $datos = match($metodo){
             "POST"=>$this->insert("INSERT INTO Ciudades (ciudad_nombre,departamento_id) VALUES (:ciudad_nombre,:departamento_id)"),
             "GET" => call_user_func(function(){
@@ -17,8 +20,9 @@ class ciudadesModels{
                 }));
                 $datos['departamentos']= $this->select("SELECT departamento_id, departamento_nombre FROM Departamentos");                
                 return $datos;
-            })           
-        };        
+            }),
+            "DELETE"=>$this->delete('DELETE FROM Ciudades WHERE ciudad_id = :ciudad_id',$id,'/ciudades')
+        };    
         return $datos;
     }
 }

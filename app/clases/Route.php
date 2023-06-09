@@ -13,8 +13,8 @@ class Route {
     public function name($name){
         $this->name = strtolower($name);
     }
-    public function match($uri,$method){                
-        if($method == $this->method && $uri == $this->name){
+    public function match($uri,$method){
+        if($method == $this->method && preg_match($this->name,$uri)){
             return true;
         }
         return false;

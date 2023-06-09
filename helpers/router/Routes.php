@@ -20,14 +20,14 @@ abstract class Routes{
                 $controller =new ciudadesController($conn,$method);                
                 return $controller->render();
             }
-        ))->name('/ciudades');
+        ))->name('/\/(ciudades)/');
         $router->add(new Route(
-            'GET',
+            'DELETE',
             function ($conn,$method){
                 $controller =new ciudadesController($conn,$method);                
                 return $controller->render();
             }
-        ))->name('/ciudades/delete');
+        ))->name('/\/(ciudades\/delete\/)\d+$/');
         $router->add(new Route(
             'GET',
             function ($conn,$method){

@@ -1,4 +1,4 @@
-<form class="col d-flex flex-wrap" action="ciudades/registrar" method="POST">
+<form class="col d-flex flex-wrap" action="ciudades" method="POST">
     <div class="mb-1 col-12">
         <label for="celular" class="form-label" for='ciudad_nombre'>NOMBRE DE LA CIUDAD</label>
         <input 
@@ -20,4 +20,5 @@
             ?>
         </select>        
     </div>
+    <button type="submit" class="btn btn-success mt-4">Guardar</button>
 </form>  

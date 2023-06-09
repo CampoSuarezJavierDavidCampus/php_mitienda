@@ -17,6 +17,11 @@ class Ciudad extends Obj implements Table{
 
         return $params;
     }
+    public function get_id():array{
+        return [
+            'ciudad_id'=>$this->ciudad_id
+        ];
+    }
     public function get_datos():array{
         $datos = [];
         if($this->ciudad_nombre != ''){

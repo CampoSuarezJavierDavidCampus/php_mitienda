@@ -24,4 +24,18 @@ trait Model{
         $datos =$stmt->fetchAll();        
         return $datos;
     }
+    protected function delete($SQL,?array $id,$path){
+        if(!$id){
+            return false;
+        }
+        $stmt = $this->conn->prepare($SQL);
+        $stmt->execute($id);        
+        echo <<<HTML
+            <script>
+                alert('UN CAMPO HA SIDO ALTERADO');                
+                window.location.href = '$path';
+            </script>
+        HTML;
+        
+    }
 }

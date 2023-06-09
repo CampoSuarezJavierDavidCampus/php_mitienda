@@ -16,9 +16,9 @@ class ciudadesController extends ciudadesModels implements Controller{
         parent::__construct($conn);       
         if (!empty($_GET) && isset($_GET['id'])) {
             $this->add(new Ciudad('',(int)$_GET['id']));
-        }else{
-            foreach($datos as $datos_ciudad){
-                list($ciudad_nombre,$departamento_id)=$datos_ciudad;
+        }else{            
+            if(!empty($_POST)){
+                list($ciudad_nombre,$departamento_id)=$_POST;
                 $departamento = new Departamento('',$departamento_id);
                 $ciudad = new Ciudad($ciudad_nombre,null,$departamento);                
                 $this->add($ciudad);

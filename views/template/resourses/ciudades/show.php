@@ -17,8 +17,8 @@
                         <td>$ciudad->ciudad_nombre</td>
                         <td>$ciudad->departamento_nombre</td>
                         <td>
-                            <a class="btn btn-danger" href="ciudad/delete/$ciudad->ciudad_id">Eliminar</a>
-                            <a class="btn btn-success" href="ciudad/edit/$ciudad->ciudad_id">Editar</a>
+                            <a class="btn btn-danger" href="ciudades/delete/$ciudad->ciudad_id">Eliminar</a>
+                            <a class="btn btn-success" href="ciudades/edit/$ciudad->ciudad_id">Editar</a>
                         </td>                
                     </tr>
                 HTML;
