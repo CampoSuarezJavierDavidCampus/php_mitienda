@@ -19,7 +19,7 @@ trait Model{
         $this->conn = null;
     }
     protected function select(string $SQL):array{        
-        $stmt = $this->conn->prepare($SQL);        
+        $stmt = $this->conn->prepare($SQL);
         $stmt->execute($this->objs?$this->objs[0]->get_params():null);
         $datos =$stmt->fetchAll();        
         return $datos;

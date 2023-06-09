@@ -15,7 +15,7 @@ class departamentosController extends departamentosModel implements Controller{
     {
         parent::__construct($conn);
         if (!empty($_GET) && isset($_GET['id'])) {
-            $this->add(new Departamento('',$_GET['id']));
+            $this->add(new Departamento('',(int)$_GET['id']));
         }else{
             foreach($datos as $datos_departamento){
                 list($nombre,$pais_id)=$datos_departamento;

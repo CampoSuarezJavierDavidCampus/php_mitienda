@@ -8,7 +8,7 @@ class Database{
         $this->settings = $settings;
     }
         
-    public function getConnection($dbKey) {
+    public function getConnection($dbKey):\PDO {
         $dbConfig = $this->settings[$dbKey];
         $this->conn = null;
         // $dsn = "{$dbConfig['driver']}:host={$dbConfig['host']};dbname={$dbConfig['database']};charset={$dbConfig['charset']}";

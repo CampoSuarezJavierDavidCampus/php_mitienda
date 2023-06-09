@@ -1,13 +1,13 @@
 <?php 
-namespace Config;
+namespace Helpers\config;
 class connectionString{
     public $db = Array(
         'db' => Array(
             'driver' => 'mysql',
             'host' => 'localhost',
-            'username' => 'campus',
+            'username' => 'root',
             'database' => 'mitienda',
-            'password' => 'campus2023',
+            'password' => 'campusLand@2023',
             'collation' => 'utf8mb4_unicode_ci',
             'flags' => [
                 // Turn off persistent connections
@@ -16,8 +16,8 @@ class connectionString{
                 \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
                 // Emulate prepared statements
                 \PDO::ATTR_EMULATE_PREPARES => true,
-                // Set default fetch mode to array
-                \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+                // Set default fetch mode to arrayfetch_object
+                \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ,
                 // Set character set
                 \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci'
             ]

@@ -5,7 +5,7 @@ use App\Obj;
 use App\clases\Pais;
 class Departamento extends Obj implements Table{
     public function __construct(
-        public string $nombre = '',
+        public string $departamento_nombre = '',
         public ?int $departamento_id,
         public ?Pais $pais = null
     ){}
@@ -19,8 +19,8 @@ class Departamento extends Obj implements Table{
     }
     public function get_datos():array{
         $datos = [];
-        if($this->nombre != ''){
-            $datos['string']= ['nombre',$this->nombre];            
+        if($this->departamento_nombre != ''){
+            $datos['string']= ['departamento_nombre',strtolower($this->departamento_nombre)];
         }
         if($this->departamento_id){
             $datos['number'] = ['departamento_id',$this->departamento_id];
